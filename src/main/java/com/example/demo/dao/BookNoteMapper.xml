@@ -6,30 +6,30 @@
 	
 	<!-- get  book record list -->
 	<select id="getBookNoteList" resultType="com.example.demo.entity.BookNote">
-		SELECT 
-			note_no AS noteNo,
-			user_no AS userNo,
-			title,
-			memo,
-			input_date AS inputDate
-	    FROM
-	        note
-	    WHERE
-	    	 user_no = #{userNo}
+	SELECT 
+		note_no AS noteNo,
+		user_no AS userNo,
+		title,
+		memo,
+		input_date AS inputDate
+	FROM
+		note
+	WHERE
+		user_no = #{userNo}
 	</select>
 	
 	<!-- get a book note -->
 	<select id="getBookNote" resultType="com.example.demo.entity.BookNote">
-		SELECT 
-			note_no AS noteNo,
-			user_no AS userNo,
-			title,
-			memo,
-			input_date as inputDate
-	    FROM
-	        note
-	    WHERE
-	    	note_no = #{noteNo}
+	SELECT 
+		note_no AS noteNo,
+		user_no AS userNo,
+		title,
+		memo,
+		input_date as inputDate
+	FROM
+		note
+	WHERE
+		note_no = #{noteNo}
 	</select>
 	
 	<!-- insert new note -->
@@ -48,22 +48,22 @@
             #{memo},
             #{inputDate}
         )
-    </insert>
+	</insert>
     
          <!-- insert new note -->
 	<update id="updateNote" parameterType="com.example.demo.entity.BookNote">
         UPDATE note
         SET
-			title = #{title},
-			memo = #{memo},
-			input_date = #{inputDate}
-		WHERE
-			note_no = #{noteNo}
-    </update>
+		title = #{title},
+		memo = #{memo},
+		input_date = #{inputDate}
+	WHERE
+		note_no = #{noteNo}
+	</update>
     
-    <delete id="deleteNote">
+	<delete id="deleteNote">
     	DELETE FROM note
     	WHERE
     		note_no = #{noteNo}
-    </delete>
+	</delete>
 </mapper>

@@ -6,63 +6,63 @@
 
 	<!-- get  book record list -->
 	<select id="getBookRecordList" resultType="com.example.demo.entity.BookRecord">
-		SELECT
-			user_no AS userNo,
-			record_no AS recordNo,
-			title,
-			author,
-			start_date AS startDate,
-			finish_date AS endDate,
-			input_date AS inputDate,
-			status,
-			memo
-	    FROM
-	        record
-	    WHERE
-	    	 user_no = #{userNo}
+	SELECT
+		user_no AS userNo,
+		record_no AS recordNo,
+		title,
+		author,
+		start_date AS startDate,
+		finish_date AS endDate,
+		input_date AS inputDate,
+		status,
+		memo
+	FROM
+		record
+	WHERE
+		user_no = #{userNo}
 	</select>
 	
 	<!-- get a book note -->
 	<select id="getBookRecord" resultType="com.example.demo.entity.BookRecord">
-		SELECT 
-			user_no AS userNo,
-			record_no AS recordNo,
-			title,
-			author,
-			start_date AS startDate,
-			finish_date AS endDate,
-			input_date AS inputDate,
-			status,
-			memo
-	    FROM
-	        record
-	    WHERE
-			record_no = #{recordNo}
+	SELECT 
+		user_no AS userNo,
+		record_no AS recordNo,
+		title,
+		author,
+		start_date AS startDate,
+		finish_date AS endDate,
+		input_date AS inputDate,
+		status,
+		memo
+	FROM
+		record
+	WHERE
+		ecord_no = #{recordNo}
 	</select>
     
     <!-- insert new note -->
 	<insert id="insertNewRecord" parameterType="com.example.demo.entity.BookRecord">
         INSERT INTO record
         (
-            user_no,
-			title,
-			author,
-			start_date,
-			finish_date,
-			input_date,
-			status,
-			memo
+		user_no,
+		title,
+		author,
+		start_date,
+		finish_date,
+		input_date,
+		status,
+		memo
         )
         VALUES
         (
-            #{userNo},
-			#{title},
-			#{author},
-			#{startDate},
-			#{endDate},
-			#{inputDate},
-			#{status},
-			#{memo}
+		#{userNo},
+		#{title},
+		#{author},
+		#{startDate},
+		#{endDate},
+		#{inputDate},
+		#{status},
+		#{memo}
         )
     </insert>
     
@@ -70,20 +70,20 @@
 	<update id="updateRecord" parameterType="com.example.demo.entity.BookRecord">
         UPDATE record
         SET
-			title = #{title},
-			author = #{author},
-			start_date = #{startDate},
-			finish_date = #{endDate},
-			input_date = #{inputDate},
-			status = #{status},
-			memo = #{memo}
-		WHERE
-			record_no = #{recordNo}
+		title = #{title},
+		author = #{author},
+		start_date = #{startDate},
+		finish_date = #{endDate},
+		input_date = #{inputDate},
+		status = #{status},
+		memo = #{memo}
+	WHERE
+		record_no = #{recordNo}
     </update>
     
     <delete id="deleteRecord">
     	DELETE FROM record
     	WHERE
-			record_no = #{recordNo}
+		record_no = #{recordNo}
     </delete>
 </mapper>

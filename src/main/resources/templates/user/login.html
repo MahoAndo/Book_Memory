@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common :: head">
+	<title>Book Memory</title>
+</head>
+<body>
+	<header class="d-flex justify-content-center py-3"></header>
+	<div class="container">
+		<form th:action="@{/user}" th:object="${user}" th:method="post">
+			<div class="whole">
+				<h1>Book Memory</h1>
+				<div class="form-group pb-3 w-50">
+					<label>Username</label>
+					<input type="text" class="form-control" th:field="${user.userName}" placeholder="Username" required/>
+				</div>
+				<div class="form-group pb-3 w-50">
+					<label>Password</label>
+					<input type="password" class="form-control" th:field="${user.password}" placeholder="Password" maxlength="5" required/>
+				</div>
+				<div class="form-group pb-3 w-50">
+					<input type="submit" class="btn bg-info text-white w-100" value="SignIn">
+				</div>
+				<div th:if="${maxNo < 6}"  class="form-group w-50">
+					<a th:href="@{user/register}" class="btn bg-info text-white w-100">create a new account</a>
+				</div>
+			</div>
+		</form>
+	</div>
+	<!-- hidden value -->
+	<input type="hidden" name="type" th:value="${type}">
+</body>
+<script type="text/javascript" th:inline="javascript">
+/*<![CDATA[*/
+	// onload
+	window.onload = function(){
+		const type = document.getElementsByName("type")[0].value;
+		
+		switch(type){
+			case "1":
+				alert("User registration has been completed.\nStart by logging in.");
+			break;
+			case "2":
+				alert("Login failed.\nTry again.");
+			break;
+			default:
+			break;
+		}		
+	}
+/*]]>*/
+</script>
+</html>

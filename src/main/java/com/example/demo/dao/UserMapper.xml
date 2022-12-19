@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.UserMapper">
+
+	<select id="getUserNo" resultType="int">
+	    SELECT
+	        user_no AS userNo
+	    FROM
+	        user
+	    WHERE
+	    	 name = #{userName}
+	    AND
+	    	 password = #{password}
+	</select>
+	
+	<insert id="insertUser" parameterType="com.example.demo.entity.User">
+		INSERT INTO user
+	        (
+	        	user_no,
+	            user_id,
+				name,
+				password
+	        )
+	        VALUES
+	        (
+	        	#{userNo},
+	            #{userId},
+				#{userName},
+				#{password}
+	        )
+	</insert>
+	
+	<update id="updateUser" parameterType="com.example.demo.entity.User">
+        UPDATE user
+        SET
+        	name = #{userName}
+			password = #{password}
+		WHERE
+			user_no = #{userNo}
+    </update>
+    
+    <delete id="deleteUser" parameterType="com.example.demo.entity.User">
+    	DELETE 
+    	FROM
+    		user
+    	WHERE
+			user_no = #{userNo}
+    </delete>
+    
+    <select id="getMaxUserNo" resultType="int">
+        SELECT 
+        	MAX(user_no)
+        FROM
+        	user
+    </select>
+    
+</mapper>

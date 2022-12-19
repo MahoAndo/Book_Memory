@@ -1,0 +1,26 @@
+.whole{
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+textarea{
+	resize: none;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    padding: 0 50px;
+}
+
+.header-font{
+    font-size: xx-large;
+}
+
+.header-out{
+	font-size: x-large;
+    padding: 6px 0px;
+}
+

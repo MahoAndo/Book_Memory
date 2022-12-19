@@ -1,0 +1,19 @@
+h2 {
+	text-align: center;
+}
+
+th {
+		min-height: 10em;
+		display: table-cell;
+		vertical-align: middle;
+}
+
+label{
+	padding-right: 3%;
+}
+
+p {
+	margin: auto;
+    width: 5%;
+    font-size: x-large;
+}

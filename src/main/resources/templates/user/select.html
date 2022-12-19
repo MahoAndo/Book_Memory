@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link th:href="@{/css/common.css}" rel="styleSheet">
+	<title>Book Memory</title>
+</head>
+<body>
+	<header th:replace="common :: header"></header>
+	<div class="container">
+		<form th:action="@{/user/select}" method="post">
+			<div class="whole">
+				<h1>Which one...</h1>
+				<div class="form-group pb-3">
+					<a th:href="@{/book/record/(userNo=${userNo})}" class="">Book Record</a>
+				</div>
+				<div class="form-group pb-3">
+					<a th:href="@{/book/note/(userNo=${userNo})}" class="">Book Note</a>
+				</div>
+				<input type="hidden" name="userNo" th:value="${userNo}">
+				<input type="hidden" name="page" th:value="${page}">
+			</div>
+		</form>
+	</div>
+</body>
+<script type="text/javascript" th:inline="javascript">
+</script>
+</html>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.BookNoteMapper">
+	
+	<!-- get  book record list -->
+	<select id="getBookNoteList" resultType="com.example.demo.entity.BookNote">
+		SELECT 
+			note_no AS noteNo,
+			user_no AS userNo,
+			title,
+			memo,
+			input_date AS inputDate
+	    FROM
+	        note
+	    WHERE
+	    	 user_no = #{userNo}
+	</select>
+	
+	<!-- get a book note -->
+	<select id="getBookNote" resultType="com.example.demo.entity.BookNote">
+		SELECT 
+			note_no AS noteNo,
+			user_no AS userNo,
+			title,
+			memo,
+			input_date as inputDate
+	    FROM
+	        note
+	    WHERE
+	    	note_no = #{noteNo}
+	</select>
+	
+	<!-- insert new note -->
+	<insert id="insertNewNote" parameterType="com.example.demo.entity.BookNote">
+        INSERT INTO note
+        (
+            user_no,
+            title,
+            memo,
+            input_date
+        )
+        VALUES
+        (
+            #{userNo},
+            #{title},
+            #{memo},
+            #{inputDate}
+        )
+    </insert>
+    
+         <!-- insert new note -->
+	<update id="updateNote" parameterType="com.example.demo.entity.BookNote">
+        UPDATE note
+        SET
+			title = #{title},
+			memo = #{memo},
+			input_date = #{inputDate}
+		WHERE
+			note_no = #{noteNo}
+    </update>
+    
+    <delete id="deleteNote">
+    	DELETE FROM note
+    	WHERE
+    		note_no = #{noteNo}
+    </delete>
+</mapper>
